@@ -1,0 +1,19 @@
+---
+title: "BCOR 102 Lecture Notes & Rscripts"
+author: ''
+date: 'Latest Update: 7 November 2015'
+output:
+  html_document:
+    theme: readable
+  pdf_document: default
+---
+_______
+**Nicholas J. Gotelli**   
+**Department of Biology**      
+**University of Vermont**      
+
+These are the updated course notes and Rscripts for BCOR 102 lectures.
+
+[Notes (pdf)](BCOR_LECTURE_NOTES.pdf)   
+[Notes (html)](BCOR_LECTURE_NOTES.html)   
+[Code only](BCOR_LECTURE_NOTES.R)   
