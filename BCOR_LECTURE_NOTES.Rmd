@@ -1,7 +1,7 @@
 ---
 title: "BCOR 102 Lecture Notes"
 author: "Nicholas J. Gotelli"
-date: "5 November 2015"
+date: "Department of Biology, University of Vermont"
 output:
   pdf_document:
     highlight: tango
@@ -558,7 +558,7 @@ What are the chances of getting caught speeding at least once during a year in w
 ```
 p(speeding ticket during one year) = 
 
-1 - (1 - 0.1)^50 = 0.39
+1 - (1 - 0.01)^50 = 0.39
 ```
 So, a 39% chance of getting caught at some time during the year, even though the chance of getting caught each individual Friday is only 0.01.
 
@@ -684,8 +684,21 @@ Genetic Drift | Strong (if N~E~ < 100) | Yes (if N~E~ < 100) | No
 1. Individuals exhibit variation in their traits
 2. At least some of that variation has a heritable (= genetic) component
 3. All individuals produce more offspring than can survive
-4. Those individuals that survive better do so because of their traits
+4. Particular traits enhance survival in particular environments (relative to individuals with other traits)
 
+## Selection Experiments And The Measurement Of Fitness
+
+- establish an experiment with replicate individuals of each genotype in the population (there will be 3 such genotypes AA AB BB for a single-gene two-allele system)
+
+- expose individuals to a selection pressure (e.g. heat shock, presence of a predator, disease)
+- calculate the number surviving after the selection pressure (or their reproduction in a fecudity experiment)
+- calculate absolute fitness as the proportion that survive (p~1~, p!2~, p~3~)
+- calculate relative fitness by dividing absolute fitness by the absolute fitness of the "best" genotype (w~1~, w~2~, w~3~)
+- assume the environment is constant, so that the relative fitness values are the same in each generation 
+
+`absolute fitness` proportional survival or relative reproduction of genotypes in a selection experiment
+
+`relative fitness` absolute fitness values scaled to the largest absolute fitness measured for one of the genotypes in the population
 
 # R Functions
 Here is a collection of R functions that calculate each of the formulas we use in BCOR 102. You can paste them into R or use in the accompanying script file `BCOR_LECTURE_NOTES.R`. These are simple calculators that you can use to practice numerical problems and make sure you are doing your calculations correctly.

@@ -75,7 +75,7 @@ img {
 <div id="header">
 <h1 class="title">BCOR 102 Lecture Notes</h1>
 <h4 class="author"><em>Nicholas J. Gotelli</em></h4>
-<h4 class="date"><em>5 November 2015</em></h4>
+<h4 class="date"><em>Department of Biology, University of Vermont</em></h4>
 </div>
 
 
@@ -737,7 +737,7 @@ f(BB) = 0.8^2(1 - 0.5) + 0.8*0.5 = 0.72</code></pre>
 <p>What are the chances of getting caught speeding at least once during a year in which you work 50 weeks?</p>
 <pre><code>p(speeding ticket during one year) = 
 
-1 - (1 - 0.1)^50 = 0.39</code></pre>
+1 - (1 - 0.01)^50 = 0.39</code></pre>
 <p>So, a 39% chance of getting caught at some time during the year, even though the chance of getting caught each individual Friday is only 0.01.</p>
 <p>And if you commute like this for 5 years in a row?</p>
 <pre><code>p(speeding ticket at least once during 5 years) = 
@@ -884,8 +884,21 @@ N_E =125.6 individuals</code></pre>
 <li>Individuals exhibit variation in their traits</li>
 <li>At least some of that variation has a heritable (= genetic) component</li>
 <li>All individuals produce more offspring than can survive</li>
-<li>Those individuals that survive better do so because of their traits</li>
+<li>Particular traits enhance survival in particular environments (relative to individuals with other traits)</li>
 </ol>
+</div>
+<div id="selection-experiments-and-the-measurement-of-fitness" class="section level2">
+<h2>Selection Experiments And The Measurement Of Fitness</h2>
+<ul>
+<li><p>establish an experiment with replicate individuals of each genotype in the population (there will be 3 such genotypes AA AB BB for a single-gene two-allele system)</p></li>
+<li>expose individuals to a selection pressure (e.g. heat shock, presence of a predator, disease)</li>
+<li>calculate the number surviving after the selection pressure (or their reproduction in a fecudity experiment)</li>
+<li>calculate absolute fitness as the proportion that survive (p<sub>1</sub>, p!2~, p<sub>3</sub>)</li>
+<li>calculate relative fitness by dividing absolute fitness by the absolute fitness of the “best” genotype (w<sub>1</sub>, w<sub>2</sub>, w<sub>3</sub>)</li>
+<li><p>assume the environment is constant, so that the relative fitness values are the same in each generation</p></li>
+</ul>
+<p><code>absolute fitness</code> proportional survival or relative reproduction of genotypes in a selection experiment</p>
+<p><code>relative fitness</code> absolute fitness values scaled to the largest absolute fitness measured for one of the genotypes in the population</p>
 </div>
 </div>
 <div id="r-functions" class="section level1">
