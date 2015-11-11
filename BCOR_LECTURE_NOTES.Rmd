@@ -700,6 +700,22 @@ Genetic Drift | Strong (if N~E~ < 100) | Yes (if N~E~ < 100) | No
 
 `relative fitness` absolute fitness values scaled to the largest absolute fitness measured for one of the genotypes in the population
 
+Genotype | Before Selection | After Selection | Absolute Fitness | Relative Fitness
+-- | -- | -- | -- | --
+AA | 50 | 20 | 20/50=0.4 | 0.4/0.4 = 1.0
+AB | 100 | 35 | 35/100=0.35 | 0.35/0.40 = 0.875
+BB | 25 | 5 | 5/25=0.20 | 0.20/0.40 = 0.50
+
+w~1~ = 1.0 = relative fitness of AA   
+w~2~ = 0.875 = relative fitness of AB   
+w~3~ = 0.50 = relative fitness of BB   
+
+`mean fitness` average fitness of individuals in the population after random mating and selection $= \bar{w}$
+
+$$\bar{w} = w_1p^2 + w_2pq + w_3q^2$$
+
+
+
 # R Functions
 Here is a collection of R functions that calculate each of the formulas we use in BCOR 102. You can paste them into R or use in the accompanying script file `BCOR_LECTURE_NOTES.R`. These are simple calculators that you can use to practice numerical problems and make sure you are doing your calculations correctly.
 
