@@ -692,7 +692,7 @@ Genetic Drift | Strong (if N~E~ < 100) | Yes (if N~E~ < 100) | No
 
 - expose individuals to a selection pressure (e.g. heat shock, presence of a predator, disease)
 - calculate the number surviving after the selection pressure (or their reproduction in a fecudity experiment)
-- calculate absolute fitness as the proportion that survive (p~1~, p!2~, p~3~)
+- calculate absolute fitness as the proportion that survive (p~1~, p~2~, p~3~)
 - calculate relative fitness by dividing absolute fitness by the absolute fitness of the "best" genotype (w~1~, w~2~, w~3~)
 - assume the environment is constant, so that the relative fitness values are the same in each generation 
 
@@ -714,9 +714,139 @@ w~3~ = 0.50 = relative fitness of BB
 
 $$\bar{w} = w_1p^2 + w_2pq + w_3q^2$$
 
+## A Model Of Natural Selection & Random Mating
+
+### STEP #1. Given: initial genotype counts AND relative fitness values
+
+$$ \#AA $$ 
+$$ \#AB $$
+$$ \#BB $$
+
+$$ w_1 = \frac{\mbox{absolute fitness of AA}}{\mbox{largest maximum fitness}} $$
+
+
+$$ w_2 = \frac{\mbox{absolute fitness of AB}}{\mbox{largest maximum fitness}} $$
+
+
+$$ w_3 = \frac{\mbox{absolute fitness of BB}}{\mbox{largest maximum fitness}} $$
+
+
+```
+AA = 50       AB = 50        BB = 100
+
+w_1 = 0.40/0.40 = 1.00
+w_2 = 0.35/0.40 = 0.875
+w_3 = 0.20/0.40 = 0.50
+```
+
+
+### STEP #2. Calculate initial genotype and allelic frequencies (p~0~, q~0~)
+
+$$ f(AA) = \frac{\#AA}{N} \; f(AB) = \frac{\#AB}{N} \; f(BB) = \frac{\#BB}{N} $$
+
+$$ f(A) = f(AA) + \frac{1}{2}f(AB) = p_0 $$
+
+$$ f(B) = f(BB) + \frac{1}{2}f(AB) = q_0 $$
+
+```
+f(AA) = 50/200  = 0.25
+f(AB) = 50/200  = 0.25
+f(BB) = 100/200 = 0.50
+
+f(A) = 0.25 + (0.5)*(0.25) = 0.375 = p_0
+f(B) = 0.50 + (0.5)*(0.25) = 0.625 = q_0
+```
+### STEP #3. Calculate genotype frequencies AFTER random mating
+
+$$ f(AA)=p_0^2 $$
+
+$$ f(AB)= 2p_0q_0 $$
+
+$$ f(BB)=q_0^2 $$
+
+```
+f(AA) = (0.375)^2 = 0.141
+f(AB) = 2(0.375)(0.625) = 0.469
+f(BB) = (0.625)^2 = 0.391
+```
+### STEP #4. Calculate genotype frequencies AFTER selection
+
+$$ p_0^2w_1 + 2p_0q_0w_2 + q_0^2w_3 = \bar{w} $$
+
+```
+f(AA) = (0.141)(1.0) = 0.141
+f(AB) = (0.469)(0.875) = 0.410
+f(BB) = (0.391)(0.50) = 0.391
+
+mean fitness = 0.141 + 0.410 + 0.391 = 0.747
+```
+
+
+### STEP #5. Normalize genotype frequencies
+
+
+$$ f(AA)=\frac{p_0^2w_1}{\bar{w}} $$
+
+$$ f(AB)= \frac{2p_0q_0w_2}{\bar{w}} $$
+
+$$ f(BB)= \frac{q_0^2w_3}{\bar{w}} $$
+
+```
+f(AA) = 0.141/0.747 = 0.189
+f(AB) = 0.410/0.747 = 0.549
+f(BB) = 0.196/0.747 = 0.262
+```
+### STEP #6. Calculate new allelic frequencies
+
+$$ f(A) = f(AA) + \frac{1}{2}f(AB) = p_1 $$
+
+$$ f(B) = f(BB) + \frac{1}{2}f(AB) = q_1 $$
+
+```
+f(A) = 0.189 + 0.5*(0.549) = 0.464 = p_1
+
+f(B) = 0.262 + 0.5*(0.549) = 0.536 = q_1
+```
+### STEP #7. Calculate new genotype frequencies AFTER random mating
+
+
+$$ f(AA)=p_1^2 $$
+
+$$ f(AB)= 2p_1q_1 $$
+
+$$ f(BB)=q_1^2 $$
+
+```
+f(AA) = (0.464)^2 = 0.215 
+f(AB) = 2(0.464)(0.536) = 0.497
+f(BB) = (0.536)^2 = 0.287
+```
+
+## Long-term Outcomes Of Selection
+
+`Selection coefficient s` measure of relative selection *against* a genotype
+
+$$ s = 1 - w $$
+
+s = 0 (no relative loss to selection = best genotype = w = 1)    
+s = 1 (lethal genotype w = 0)
+
+Selection Scenario | w~1~ | w~2~ | w~3~ | Result
+-- |-- |-- |-- |-- 
+against recessive | 1.0 | 1.0 | 1 - s~3~ | Slow elimination of (a) allele
+against recessive + mutation |1.0 | 1.0 | 1 - s~3~ | equilibrium $q \approx \sqrt{(u/s)}$
+against dominant | 1 - s~1~ | 1 - s~2~ | 1.0 | rapid elimination of (A) allele
+favoring heterozygote | 1 - s~1~ | 1.0 | 1 - s~3~ | equilibrium $q = s_1/(s_1 + s_3)$
+
+## What Does Natural Selection Maximize?
+
+`Fisher's Fundamental Theorem Of Natural Selection` Natural selection maximizes the average fitness $(\bar{w})$ in a population.
+
+If there is selection against a dominant or against a recessive, this leads to allele fixation with $\bar{w} = 1$. If there is selection against a recessive with ongoing mutation or selection favoring the heterozygote (= `heterosis` or `balancing selection`)  both alleles are maintained at an equilibrium, and $(\bar{w})$ is maximized at a value less than 1.0.
 
 
 # R Functions
+
 Here is a collection of R functions that calculate each of the formulas we use in BCOR 102. You can paste them into R or use in the accompanying script file `BCOR_LECTURE_NOTES.R`. These are simple calculators that you can use to practice numerical problems and make sure you are doing your calculations correctly.
 
 ## R Functions For Allelic & Hardy-Weinberg Calculations
