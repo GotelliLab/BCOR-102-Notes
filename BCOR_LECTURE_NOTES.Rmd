@@ -821,6 +821,7 @@ f(AA) = (0.464)^2 = 0.215
 f(AB) = 2(0.464)(0.536) = 0.497
 f(BB) = (0.536)^2 = 0.287
 ```
+# Lecture Notes For Friday November 13th
 
 ## Long-term Outcomes Of Selection
 
@@ -843,6 +844,18 @@ favoring heterozygote | 1 - s~1~ | 1.0 | 1 - s~3~ | equilibrium $q = s_1/(s_1 + 
 `Fisher's Fundamental Theorem Of Natural Selection` Natural selection maximizes the average fitness $(\bar{w})$ in a population.
 
 If there is selection against a dominant or against a recessive, this leads to allele fixation with $\bar{w} = 1$. If there is selection against a recessive with ongoing mutation or selection favoring the heterozygote (= `heterosis` or `balancing selection`)  both alleles are maintained at an equilibrium, and $(\bar{w})$ is maximized at a value less than 1.0.
+
+## The Modern Synthesis
+
+1. **Evolutionary phenomena** (genetic change in populations, adaptation, speciation) can be explained via mechanisms consistent with Mendelian genetics.
+
+2. **Evolution is gradual** via small genetic changes; as these changes accumulate, species diverge.
+
+3. **Natural selection is the strongest mechanism** of evolution, and may work in concert with genetic drift.
+
+4. **Genetic diversity** in populations reflects past and current natural selection.
+
+5. **Microevolutionary change** leads to macroevolutionary responses.
 
 
 # R Functions
