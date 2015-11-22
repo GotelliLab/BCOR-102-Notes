@@ -7,7 +7,7 @@ output:
     highlight: tango
   html_document:
     highlight: tango
-    theme: cosmo
+    theme: cerulean
 ---
 
 # Lecture Notes For Wednesday 21 October 2015
@@ -323,6 +323,7 @@ q(1000) = 0.0509
 Here is a graph illustrating the change through time
 
 ```{r tidy=TRUE}
+rm(list=ls())
 p0 <- 0.95
 t <- 1:100000
 
@@ -337,6 +338,7 @@ axis(1,at=marks,labels=marks)
 points(x=t,y=qt5,type="l",col="blue")
 points(x=t,y=qt4,type="l",col="orange")
 ```
+
  At this rate, it would take nearly 5 million generations $(5\times 10^6)$ for the B allele to go from a frequency of 0.05 to 0.95. The increase is faster if the mutation rate is $10^{-5}$ (blue curve), but even at the faster rate of $10^{-4}$ (orange curve), it still takes almost 50,000 generations for a substantial increase in allele frequency caused only by mutation.
  
 Finally, we note that this analysis assumes that mutation only occurs in one direction (from A to B). But if there is also back mutation from B to A occurring at rate v, then the allele will never go to fixation. Instead an equilibrium will be reached at:
@@ -857,8 +859,239 @@ If there is selection against a dominant or against a recessive, this leads to a
 
 5. **Microevolutionary change** leads to macroevolutionary responses.
 
+# Lecture Notes For Monday November 16th
+
+## Selection On Quantitative Traits
+
+Most traits in nature are not controlled by a single gene with multiple loci. Many traits are controlled by multiple loci and can also reflect phenotypic plasticity and environmental effects. These traits, such as body size, usually exhibit a bell-shaped normal distribution. In this lecture we describe a simple theoretical framework for thinking about the evolution of these traits, and then consider three experimental designs (artificial selection, common garden, reciprocal transplant) to tease apart environmental and genetic effects on continuous traits.
+
+`discrete trait` a trait that takes on only a limited number of discrete values (e.g. red, purple, or white feathers). These traits are often controlled by a single Mendelian gene with a few alternative loci.
+
+`continuous trait` a trait (such as body mass) that can exhibit a continuous range of values. These traits are often controlled by several genes with small additive effects, and are often phenotypically plastic, so that their expression also depends on environmental conditions.
+
+## Models Of Selection On Continuous Traits
+
+`directional selection` Individuals with the largest value of a trait have higher fitness than individuals with intermediate or small trait values. Over time, the average trait value will increase, but there will probably be no change in the trait variance. Depending on the particular trait, directional selection could work on the smallest value of a trait in just the same way. Directional selection may be important in changing environments, such as increasing global temperatures, because it will favor those individuals with extreme traits (e.g. heat tolerance) that confer higher fitness under new conditions.
+
+`stabilizing selection` Individuals with intermediate values of the trait have higher fitness than individuals with extremely large or extremely small trait values. Over time, the average trait value does not change, but the variance in the trait will decrease because the individuals with the most extreme trait values will have lower fitness. Stabilizing selection is common in stable environments, where a single optimal phenotype (such as body size or offspring production) maximizes individual fitness.
+
+`disruptive selection` Individuals with extreme trait values (large or small) have higher fitness than individuals with intermediate trait values. Over time, the average trait value will not change, but the variance should increase, possibly leading to a bimodal distribution of traits. This kind of selection is uncommon, but can be seen when individuals colonize new habitats where they are rapidly exposed to extreme conditions. One example (which we will discuss) is the evolution of plant tolerances to heavy metals in contaminated soils.
+
+## Artificial Selection Experiments
+
+We humans have been conducting selective breeding experiments--- both consciously and unconsciously--- on plants and animals for thousands of years, and they yielded everything from fast-growing varieties of wheat to noble dog breeds like the chow-chow. Artificial selection experiments also gave Darwin the critical insight that environmental conditions in nature could impose a similar kind of natural selection on populations that would cause populations to evolve and eventually form new species.
+
+The method is simple:
+
+1. Examine a group of organisms and measure the trait of interest.
+2. Select a small number of individuals from the group that have the desired trait, and use those as the breeding stock for the next generation.
+3. Measure the average and variance of the trait value in the offspring and see if it has changed relative to the original parental stock.
+4. Repeat this process for multiple generations so that the 
+
+$$\bar{x} = \mbox{mean of trait in parental stock (before selection and before breeding)}$$
+$$\bar{y} = \mbox{mean of trait in parental stock (after selection and before breeding)}$$
+$$\bar{z} = \mbox{mean of trait in parental stock (after selection and after breeding)}$$
+
+$$S = \mbox{Selection Differential} = \bar{y} - \bar{x}$$
+$$R = \mbox{Response To Selection} = \bar{z} - \bar{x}$$
+$$\mbox{heritability} = h^2 = \frac{R}{S}$$
+
+`heritability` the proportion of total variation among individuals in a continuous trait that can be attributed to genetic differences among individuals. Note that $0.0 \le p \le 1.0$.
+
+```
+x = 10
+y = 20
+z = 11
+
+S = selection differential = 20 - 10 = 10
+R = response to selection = 11 - 10 = 1
+h^2 = heritability = R/S = 1/10 = 0.10
+```
+
+# Lecture Notes For Friday November 18th
+
+## Common Garden Experiments
+Common garden experiments are a method for teasing apart genetic and environmental influences on a trait. Typically, these experiments begin with observations of average trait values seen in the field. In the following set of boxplots, we see measures of a trait value for 15 individuals sampled randomly from each of 3 populations (P1, P2, and P3).
+
+
+```{r tidy=TRUE, echo=FALSE}
+
+# FUNCTION for plotting results of common garden experiments
+# 21 November 2015
+# NJG
+
+CommonGarden <- function(TraitMeans=c(40,20,70)){
+  Pop1 <- rnorm(15,TraitMeans[1],10)
+  Pop2 <- rnorm(15,TraitMeans[2],10)
+  Pop3 <- rnorm(15,TraitMeans[3],10)
+PopData <- c(Pop1,Pop2,Pop3)
+Treatment <- rep(c("P1","P2","P3"),each=15)
+par(mar=c(6,6,4,2))
+BoxPlotDataFrame <- data.frame(x=Treatment,y=PopData)
+boxplot(y~x,data=BoxPlotDataFrame,ylab="Trait Value",sub="Donor Source",cex.sub=2,cex.axis=1.5, cex.lab=2,col="bisque")
+  }
+```
+
+There are statistically significant differences in the trait values (the phenotype) between these populations, and we want to understand if these are caused by differences in the genotypes in the 3 populations, or differences in the environment in the 3 locations.
+
+### Common Garden Trait Distribution With Pure Genetic Effects
+
+The organisms are transplanted into a common garden (either in the lab or in the field) so they all experience the same environmental conditions. We further assume that the trait is not influenced by maternal effects (such as the condition of the mother during the development of the embryo) or early environment effects (such as nutrition and diet of the organism during early growth).
+
+In this case, it looks like there is a strong genetic component to the trait, because the differences observed in the natural populations are also found when the organisms from each population are raised in the common garden experiment:
+
+```{r tidy=TRUE, echo=FALSE}
+CommonGarden(c(40,20,70))
+```
+
+When we find this result, we say that the different populations represent different *ecotypes*.
+
+`ecotype` Genetically distinct geographic varieties from different local populations.
+
+
+
+### Common Garden Trait Distribution With Pure Environmental Effects
+
+Another scenario is that the trait distributions in the common garden experiment are not statistically different from one another. In this case, the traits values are approximately the same for individuals sampled from different populations. This results suggests that the phenotypic differences observed in nature reflect differences in the environment that each population experiences. The populations do not show evidence for genetic differentiation (at least with respect to this trait), and thus they do not represent different ecotypes. Note that the results of the common garden experiment may depend on the kind of environment that is used in the common garden. We explore this issue more carefully with a reciprocal transplant experiment. 
+```{r tidy=TRUE, echo=FALSE}
+CommonGarden(c(35,35,35))
+
+```
+
+## Reciprocal Transplant Experiment
+
+A reciprocal transplant experiment is like a common garden experiment, but it is done in the field, and there are two transplant sites, representing the locations where the two populations originated. Two additional "control" treatments are established by transplanting individuals back into the site from which they were collected. This treatment controls for any effects of handling or transport on the expression of the trait. Because there are two populations from which individuals are transplanted, and two sites into which they are transplanted, this is a "crossed" or "orthogonal" experimental design. 
+
+In the diagrams below, the table and figure illustrate the mean value of the trait measured in each of the 4 treatments, and the table of statistical tests gives results for additive effects of genotype, additive effects of environment, and the genotype by environment interaction term.
+
+### Scenario 1: No Effects of Genotype Or Environment On Average Trait Values
+
+|   | Donor Population (Cold) | Donor Population (Warm)
+----|--------------------|----------------------
+Recipient Site (Cold) | 10 |10
+Recipient Site (Warm) | 10 |10
+
+
+```{r tidy=TRUE, echo=FALSE}
+RecipPlot <- function(ydata=c(10,20,30,5)){
+  # set margins and set up axis locations
+  par(mar=c(9,4,4,2))
+  xdata <- c(1,1,2,2)
+  
+  # set up an empty plot
+  plot(x=xdata,y=ydata,xlim=c(0.5,2.5),ylim=c(min(ydata)-5,max(ydata)+5),ann=F,axes=F,type="n")
+  grid(nx=0,ny=10)
+  # add x axis and labels
+  axis(side=1,labels=c("Cold","Warm"),at=c(1,2),tick=T, cex.axis=1.5)
+  mtext("Donor Population",side=1,cex=2,line=4)
+  mtext("Trait Value",side=2,cex=2, line=1)
+  box()
+  
+  # add lines and points
+  lines(c(1,2),ydata[c(1,2)])
+  lines(c(1,2),ydata[c(3,4)])
+  points(c(1,2),ydata[c(1,2)],cex=4,pch=21,bg="skyblue")
+  points(c(1,2),ydata[c(3,4)],cex=3,pch=22,bg="salmon")
+  
+  # add legend
+  legend("topright",legend=c("Cold Recipient Site","Warm Recipient Site"),pch=c(21,22),pt.cex=2,pt.bg=c("skyblue","salmon"))
+  
+}
+RecipPlot(c(10,10,10,10))
+```
+
+Statistical Test | *P*-value
+--------- | ------------------
+Genotype Effect (Additive) | N.S.
+Environment Effect (Additive) | N.S.
+Genotype x Environment (Interaction) | N.S.
+
+### Scenario 2: Environmental Effects On Average Trait Values
+
+|   | Donor Population (Cold) | Donor Population (Warm)
+----|--------------------|----------------------
+Recipient Site (Cold) | 20 |20
+Recipient Site (Warm) | 10 |10
+
+
+```{r tidy=TRUE, echo=FALSE}
+RecipPlot(c(20,20,10,10))
+```
+
+Statistical Test | *P*-value
+--------- | ------------------
+Genotype Effect (Additive) | N.S.
+Environment Effect (Additive) | *P* < 0.05
+Genotype x Environment (Interaction) | N.S.
+
+### Scenario 3: Genotype Effects On Average Trait Values
+
+|   | Donor Population (Cold) | Donor Population (Warm)
+----|--------------------|----------------------
+Recipient Site (Cold) | 20 |10
+Recipient Site (Warm) | 20 |10
+
+
+```{r tidy=TRUE, echo=FALSE}
+RecipPlot(c(20,10,20,10))
+```
+
+Statistical Test | *P*-value
+--------- | ------------------
+Genotype Effect (Additive) | *P* < 0.05
+Environment Effect (Additive) | N.S.
+Genotype x Environment (Interaction) | N.S.
+
+
+### Scenario 4: Genotype And Environment Effects (Additive) On Average Trait Values
+
+|   | Donor Population (Cold) | Donor Population (Warm)
+----|--------------------|----------------------
+Recipient Site (Cold) | 20 |5
+Recipient Site (Warm) | 25 |10
+
+
+```{r tidy=TRUE, echo=FALSE}
+RecipPlot(c(20,5,25,10))
+```
+
+Statistical Test | *P*-value
+--------- | ------------------
+Genotype Effect (Additive) | *P* < 0.05
+Environment Effect (Additive) | *P* < 0.05
+Genotype x Environment (Interaction) | N.S.
+
+
+### Scenario 5: Genotype by Environment Interaction Effect On Average Trait Values
+
+|   | Donor Population (Cold) | Donor Population (Warm)
+----|--------------------|----------------------
+Recipient Site (Cold) | 20 |50
+Recipient Site (Warm) | 15 |10
+
+
+```{r tidy=TRUE, echo=FALSE}
+RecipPlot(c(20,50,15,10))
+```
+
+Statistical Test | *P*-value
+--------- | ------------------
+Genotype Effect (Additive) | N.S.
+Environment Effect (Additive) | N.S.
+Genotype x Environment (Interaction) | *P* < 0.05
+
+When the interaction term is significant, the lines connecting the treatments are no longer parallel. We can describe this interaction by saying that the difference in trait values between genotypes depends on the environment. Equivalently, we could say that the difference in trait values between environments depends on the genotype. Statistical interactions of this sort make it hard to predict the joint effect of two factors (in this case environment and genotype) just knowing how each one operates in isolation. Strong interactions between prescription drugs are a common example of this problem.
+
+# Lecture Notes For Monday November 30th
+
+# Lecture Notes For Wednesday December 2nd
+
+# Lecture Notes For Friday December 5th
+
+# Lecture Notes For Monday December 7th
 
 # R Functions
+
 
 Here is a collection of R functions that calculate each of the formulas we use in BCOR 102. You can paste them into R or use in the accompanying script file `BCOR_LECTURE_NOTES.R`. These are simple calculators that you can use to practice numerical problems and make sure you are doing your calculations correctly.
 
@@ -875,6 +1108,8 @@ Here is a collection of R functions that calculate each of the formulas we use i
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate observed allele frequencies or a single gene with 2 alleles  
+# NJG
+# 21 November 2015
 
 AlleleFreq_2A <- function(x=c(AA=100, AB=50, BB=50)) {
   
@@ -907,6 +1142,8 @@ AlleleFreq_2A <- function(x=c(AA=100, AB=50, BB=50)) {
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate observed allele frequencies or a single gene with 3 alleles  
+# NJG
+# 21 November 2015
 
 AlleleFreq_3A <- function(x=c(JJ=100, JK=50, JL=50, KL=50, KK=50, LL=50)) {
   
@@ -943,6 +1180,8 @@ AlleleFreq_3A <- function(x=c(JJ=100, JK=50, JL=50, KL=50, KK=50, LL=50)) {
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate Hardy-Weinberg genotypic frequency for a single gene with 2 alleles  
+# NJG
+# 21 November 2015
 
 HardyWeinberg_2A <- function(x=c(p=0.7, q=0.3)){
   
@@ -973,6 +1212,8 @@ cat("Expected Hardy-Weinberg genotypic frequencies:", "\n", "H-W f(AA) = ", Geno
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate Hardy-Weinberg genotypic frequency for a single gene with 3 alleles  
+# NJG
+# 21 November 2015
 
 HardyWeinberg_3A <- function(x=c(p=0.7, q=0.2, r=0.1)){
   
@@ -1059,6 +1300,8 @@ Here is a short function that takes as input the initial frequency of the mutant
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate the increase in the frequency of a mutant allele through time
+# NJG
+# 21 November 2015
 
 Mutation <- function(qo=0.5,u=0.000001,t=1:10) { 
   qt =  1 - (1 - qo)*exp(-u*t)
@@ -1077,6 +1320,8 @@ Here is a function that takes as input the initial frequency of the allele in th
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate the change in allele frequency from migration
+# NJG
+# 21 November 2015
 
 Migration <- function(p0=0.5, pm=0.9, m=0.1, t=1:10){
   pt <- (1 - m)^t * (p0 - pm) + pm
@@ -1095,6 +1340,8 @@ Here is a function that takes as input the initial frequency of one of the two a
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate the change in allele frequency from inbreeding
+# NJG
+# 21 November 2015
 
 Inbreeding <- function(p=0.3, F = 0.5){
   genotypes <- vector("numeric",3)
@@ -1118,6 +1365,8 @@ Here is a function that takes as input a series of sequential population sizes. 
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate effective population size with a bottleneck
+# NJG
+# 21 November 2015
 
 Bottleneck <- function(N=1:5){
   Ne <- 1/((1/length(N))*(sum(1/N)))
@@ -1137,6 +1386,8 @@ Here is a function that takes as input the number of males (m) and females (f) i
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate effective population size with a skewed sex ratio
+# NJG
+# 21 November 2015
 
 SexRatio <- function(m=10, f=12){ 
   Ne <- (4*m*f)/(m + f)
@@ -1156,6 +1407,8 @@ Here is a function that takes as input the population density (d) and the disper
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate effective population size with limited dispersal
+# NJG
+# 21 November 2015
 
 NatalDispersal <- function(d=10, x=1){
   Ne <- 4*pi*d*x
@@ -1176,6 +1429,8 @@ Here is a function that takes as input the probability p of a single event and t
 
 ```{r tidy=TRUE}
 # FUNCTION to calculate probability of at least one occurrence with individual probability p and number of trials n
+# NJG
+# 21 November 2015
 
 CompoundProb <- function(p=0.01, n=52){
   Prob <- 1 - (1 - p)^n
@@ -1184,5 +1439,204 @@ CompoundProb <- function(p=0.01, n=52){
 ```
 ```{r}
 CompoundProb()
+```
+## R Function For Calculation Of Genotype And Allelic Frequencies With Natural Selection
+```{r tidy=TRUE}
+# FUNCTION to Calculate and Print 7 steps of Natural Selection Equations
+# NJG
+# 21 November 2015
+
+SevenSteps <- function(gen=c(50,50,100), w=c(0.4, 0.35, 0.2)){
+  
+# Step 1: Given Initial Genotype Counts AND Relative Fitness
+  w <- w/max(w)
+cat("Step 1: Given Initial Genotype Counts AND Relative Fitness","\n")
+  cat(" #(AA) = ",gen[1], " #(AB) = ",gen[2]," #(BB) = ",gen[3],"\n")
+  cat(" w1 = ",w[1], " w2 = ",w[2]," w3 = ",w[3],"\n")
+  cat("\n")
+  
+# Step 2: Calculate Initial Genotype And Allelic Frequencies (p0, q0)
+  gen <- gen/sum(gen)
+cat("Step 2: Calculate Initial Genotype And Allelic Frequencies (p0, q0)", "\n")
+  cat(" f(AA) = ",gen[1], " f(AB) = ",gen[2]," f(BB) = ",gen[3],"\n")
+  p0 = gen[1] + 0.5*gen[2]
+  q0 = gen[3] + 0.5*gen[2]
+  cat(" f(A) =  ",p0, " f(B)  = ",q0,"\n")
+  cat("\n")
+  
+# Step 3: Calculate Genotype Frequencies AFTER Random Mating
+gen[1] <- p0^2
+gen[2] <- 2*p0*q0
+gen[3] <- q0^2
+
+cat("Step 3: Calculate Genotype Frequencies AFTER Random Mating", "\n")
+cat(" f(AA) = ",gen[1], " f(AB) = ",gen[2]," f(BB) = ",gen[3],"\n")
+cat("\n")
+  
+# Step 4: Calculate Genotype Frequencies AFTER Selection
+
+gen <- gen*w
+
+wbar <- sum(gen)
+
+cat("Step 4: Calculate Genotype Frequencies AFTER Selection", "\n")
+cat(" f(AA) = ",gen[1], " f(AB) = ",gen[2]," f(BB) = ",gen[3],"\n")
+cat("Mean fitness = ", wbar, "\n")
+cat("\n")
+  
+# Step 5: Normalize Genotype Frequencies
+gen <- gen/wbar
+cat("Step 5: Normalize Genotype Frequencies", "\n")
+cat(" f(AA) = ",gen[1], " f(AB) = ",gen[2]," f(BB) = ",gen[3],"\n")
+cat("\n")
+
+# Step 6: Calculate New Allelic Frequencies
+  p1 = gen[1] + 0.5*gen[2]
+  q1 = gen[3] + 0.5*gen[2]
+cat("Step 6: Calculate New Allelic Frequencies", "\n")
+  cat(" f(A) =  ",p1, " f(B)  = ",q1,"\n")
+  cat("\n")
+  
+# Step 7: Calculate New Genotype Frequencies AFTER Random Mating
+gen[1] <- p1^2
+gen[2] <- 2*p1*q1
+gen[3] <- q1^2
+
+cat("Step 7: Calculate New Genotype Frequencies AFTER Random Mating", "\n")
+cat(" f(AA) = ",gen[1], " f(AB) = ",gen[2]," f(BB) = ",gen[3],"\n")
+cat("\n")
+
+}
+```
+
+```{r tidy=TRUE}
+SevenSteps()
+```
+
+## R Function For Calculation Of Allelic Frequencies And Mean Fitness Across Generations
+
+```{r tidy=TRUE}
+# FUNCTION Fisher engine to calculate changes in allelic frequency with selection in each generation
+# NJG
+# 21 November 2015
+FisherEngine <- function(t=20,p0=0.1,w=c(1,1,0.5)){
+  
+# Create vectors for storing pi, wbar, and the 3 genotypes
+  pvec <- vector(mode="numeric", length=(t + 1))
+  wbar <- vector(mode="numeric", length=(t))
+  gen <- vector(mode="numeric", length=3)
+  
+# Loop through the selection random mating calculations
+  pvec[1] <- p0
+  for (i in 2:(t + 1)){
+    gen[1] <- pvec[i-1]^2*w[1]
+    gen[2] <- 2*(1 - pvec[i - 1])*pvec[i - 1]*w[2]
+    gen[3] <- (1 - pvec[i - 1])^2*w[3]
+    
+    wbar[i-1] <- sum(gen)
+    gen <- gen/wbar[i-1]
+    pvec[i] <- gen[1] + 0.5*gen[2]
+  }
+  # Graph p and wbar as a function of time
+  par(mfrow=c(1,2))
+  plot(x=1:(t+1),y=pvec,xlab="Generation",ylab="p",type="l", ylim=c(0,1),las=1)
+  grid()
+  plot(x=1:(t),y=wbar,xlab="Generation",ylab="Mean Fitness",type="l", ylim=c(0,1), las=1)
+  grid()
+  return(list(pvec,wbar))
+  
+}
+```
+
+```{r tidy=TRUE}
+FisherEngine()
+```
+
+## R Function For Calculating Heritability From A Selective Breeding Experiment
+
+```{r tidy=TRUE}
+# FUNCTION For Calculating Heritability From A Selective Breeding Experiment
+# 22 November
+# NJG
+
+Heritability <- function(x=10,y=20,z=11){
+  SelectionDifferential <- y - x
+  cat("Selection Differential = ",SelectionDifferential,"\n")
+  cat("\n")
+  
+  ResponseToSelection <- z - x
+  cat("Response To Selection = ",ResponseToSelection, "\n")
+  cat("\n")
+  
+  h2 <- ResponseToSelection/SelectionDifferential
+  cat("Heritability = ",h2, "\n")
+  cat("\n")
+}
+```
+
+```{r tidy=TRUE}
+Heritability()
+```
+
+## R Function For Plotting Results Of Common Garden Experiments
+
+```{r tidy=TRUE}
+
+# FUNCTION for plotting results of common garden experiments
+# 21 November 2015
+# NJG
+
+CommonGarden <- function(TraitMeans=c(40,20,70)){
+  Pop1 <- rnorm(15,TraitMeans[1],10)
+  Pop2 <- rnorm(15,TraitMeans[2],10)
+  Pop3 <- rnorm(15,TraitMeans[3],10)
+PopData <- c(Pop1,Pop2,Pop3)
+Treatment <- rep(c("P1","P2","P3"),each=15)
+par(mar=c(6,6,4,2))
+BoxPlotDataFrame <- data.frame(x=Treatment,y=PopData)
+boxplot(y~x,data=BoxPlotDataFrame,ylab="Trait Value",sub="Donor Source",cex.sub=2,cex.axis=1.5, cex.lab=2,col="bisque")
+  }
+```
+
+```{r tidy=TRUE}
+CommonGarden()
+```
+
+## R Function For Plotting Results Of Reciprocal Transplant Experiments
+
+```{r tidy=TRUE}
+# FUNCTION RecipPlot generates a plot of reciprocal transplant data
+# NJG
+# 21 November 2015
+# The user specifies the mean trait values for each of the 4 treatments
+# NJG
+# 21 November 2015
+
+RecipPlot <- function(ydata=c(10,20,30,5)){
+  # set margins and set up axis locations
+  par(mar=c(9,4,4,2))
+  xdata <- c(1,1,2,2)
+  
+  # set up an empty plot
+  plot(x=xdata,y=ydata,xlim=c(0.5,2.5),ylim=c(min(ydata)-5,max(ydata)+5),ann=F,axes=F,type="n")
+  grid(nx=0,ny=10)
+  # add x axis and labels
+  axis(side=1,labels=c("Cold","Warm"),at=c(1,2),tick=T, cex.axis=1.5)
+  mtext("Donor Population",side=1,cex=2,line=4)
+  mtext("Trait Value",side=2,cex=2, line=1)
+  box()
+  
+  # add lines and points
+  lines(c(1,2),ydata[c(1,2)])
+  lines(c(1,2),ydata[c(3,4)])
+  points(c(1,2),ydata[c(1,2)],cex=4,pch=21,bg="skyblue")
+  points(c(1,2),ydata[c(3,4)],cex=3,pch=22,bg="salmon")
+  
+  # add legend
+  legend("topright",legend=c("Cold Recipient Site","Warm Recipient Site"),pch=c(21,22),pt.cex=2,pt.bg=c("skyblue","salmon"))
+  
+}
+RecipPlot()
+
 ```
 
