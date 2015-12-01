@@ -3,11 +3,11 @@ title: "BCOR 102 Lecture Notes"
 author: "Nicholas J. Gotelli"
 date: "Department of Biology, University of Vermont"
 output:
-  pdf_document:
-    highlight: tango
   html_document:
     highlight: tango
     theme: cerulean
+  pdf_document:
+    highlight: tango
 ---
 
 # Lecture Notes For Wednesday 21 October 2015
@@ -412,7 +412,7 @@ The degree of inbreeding can be quantified with the inbreeding coefficient, F
 
 - `inbreeding coefficient` The fractional reduction in heterozygosity relative to a randomly mating population.
 
-$$F = \frac{H_0 - H}{H} = 1 - \frac{H}{H_0}$$
+$$F = \frac{H_0 - H}{H_0} = 1 - \frac{H}{H_0}$$
 
 where H is the observed heterozygosity in the population and H~0~ is the expected heterozygosity in a Hardy-Weinberg population (2pq).
 
@@ -1083,6 +1083,79 @@ Genotype x Environment (Interaction) | *P* < 0.05
 When the interaction term is significant, the lines connecting the treatments are no longer parallel. We can describe this interaction by saying that the difference in trait values between genotypes depends on the environment. Equivalently, we could say that the difference in trait values between environments depends on the genotype. Statistical interactions of this sort make it hard to predict the joint effect of two factors (in this case environment and genotype) just knowing how each one operates in isolation. Strong interactions between prescription drugs are a common example of this problem.
 
 # Lecture Notes For Monday November 30th
+`species (biological definition)` Groups of actually or potentially interbreeding populations that are *reproductively isolated* from other such groups.
+
+`species (taxonomic definition)` Populations that can be reliably distinguished on the basis of one or more morphological/genetic characters.
+
+|  |Morphologically Distinct | Not Morphologically Distinct |
+-- | -- | ---
+Reproductively Isolated | "good" species | cryptic species
+Not Reproductively Isolated | variable populations | similar populations
+
+## Pre-Mating Isolating Mechanisms
+1. Seasonal, habitat isolations (individuals do not meet)
+2. Ethological isolation (individuals meet, but do not mate)
+3. Mechanical isolation (gamete transfer not possible)
+
+## Post-Mating Isolating Mechanisms
+1. Gamete Mortality
+2. Zygote Mortality
+3. Hybrid Mortality
+4. Hybrid Sterility
+
+If post-mating isolating mechanisms are present, then natural selection will favor the evolution of pre-mating mechanisms.
+
+## Geographic Mechanisms of Speciation
+
+1. Allopatric Speciation
+    - widespread taxon
+    - emergence of a dispersal barrier
+    - differentiation and reproductive isolation on each side of the barrier
+  
+2. Peripheral Isolates Speciation
+    - widespread taxon
+    - pre-existing dispersal barrier
+    - occasional dispersal across barrier
+    - rapid differentiation and reproductive isolation of the peripheral population before additional dispersal and gene flow occur
+    
+3. Sympatric Speciation
+    - widespread taxon
+    - reproductive isolation of local population without geographic isolation
+    - mechanisms include major mutations, polyploidy, strong habitat differentiation
+    
+## Frequency of Geographic Speciation Mechanisms
+
+|  | Allopatric | Peripheral Isolates | Sympatric
+--- | --- | --- | ---
+Vertebrates | 80% | 15% | 5%
+Plants | 20% | 20% | 60%
+
+## Reconstructing Evolutionary Relationships
+
+- root of tree = ancestor (from a starting point)
+- time = moves in vertical direction in tree diagram
+- branch tip = contemporary species
+- branch fork = speciation event
+
+`dichotomy` tree is drawn with single branch forks   
+`polytomy` multiple simultaneous branch points (with more data, these are usually resolved into a series of dichotomous branches)   
+`sister species` two species sharing a most recent common ancestor     
+`sister taxa` any groups on a tree sharing a most recent common ancestor   
+`monophyletic group` an ancestor and all of its descendants   
+`polyphyletic group` an incorrect classification or grouping that is not monophyletic   
+`synapomorphy` shared derived characters uniting monophyletic groups   
+`homoplasy` independent or convergent evolution of the same character state in unrelated lineages   
+
+## Steps In Reconstructing Relationships Among Species
+
+1. Select traits with alternative states that vary among contemporary species.
+2. Measure and record traits for each species.
+3. Code each state of a trait as either ancestral(0) or derived(1).
+4. Specify alternative evolutionary trees (= hypotheses).
+5. Map character state changes onto each possible evolutionary tree.
+6. Choose among trees by minimizing the number of character state changes needed to reconstruct the current trait distribution (= parsimony).
+  
+  
 
 # Lecture Notes For Wednesday December 2nd
 
