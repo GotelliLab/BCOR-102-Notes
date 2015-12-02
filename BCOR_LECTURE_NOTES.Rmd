@@ -1154,10 +1154,65 @@ Plants | 20% | 20% | 60%
 4. Specify alternative evolutionary trees (= hypotheses).
 5. Map character state changes onto each possible evolutionary tree.
 6. Choose among trees by minimizing the number of character state changes needed to reconstruct the current trait distribution (= parsimony).
-  
-  
 
 # Lecture Notes For Wednesday December 2nd
+
+`sex` The recombination of alleles with those of another individual via meiosis and fertilization. Reproduction can occur without sex (e.g. plant grafts, and parthenogenesis). Sex can even occur without reproduction (e.g. *Paramecium*, which undergo conjugation and exchange genetic material without reproducing).  Some organisms like aphids alternate between sexual and asexual reproduction.
+
+## Evolutionary Costs of Sex
+1. Costs of time and energy
+2. Risk of predation
+3. Risk of sexually transmitted diseases
+4. 50% reduction in fitness (2N -> N) compared to asexual reproduction (2N -> 2N)
+
+## Evolutionary Benefits of Sex
+1. Avoidance of Muller's Ratchet (= accumulation of deleterious alleles in an asexually reproducing lineage
+2. Enhanced DNA repair when two copies of DNA are available.
+3. Remixing of alleles may help hosts in a co-evolutionary arms race with rapidly evolving microbial parasites (viruses and bacteria).
+4. Sexual reproduction generates genetic variation in offspring (probably the most important benefit).
+
+## Underlying Biological Difference Between Males and Females
+Males produce a tiny gamete (sperm), whereas females produce a large gamete (egg). All other differences between males and females are secondary sexual characteristics. Although both sexes make equal genetic contributions to offspring, the energetic investment of females per gamete may be 100 to 1000 fold greater than for males.
+
+
+## How Did Differences In Gamete Size Evolve In The First Place?
+1. Stabilizing selection for optimal zygote size.
+2. Disruptive selection for gamete size (large or small is best).
+3. Negative assortative mating based on gamete size.
+
+## Sexual Selection & The Different Male And Female Reproductive Strategies
+
+`male strategy` gametes are inexpensive so making a "mistake" and choosing a mate with low-fitness alleles is not costly. Strategy should be to maximize the number of matings.
+
+`female strategy` gametes are expensive so making a "mistake" and choosing a mate with low-fitness alleles is costly. Strategy should be to maximize the quality of matings. 
+
+`Bateman's Principle` Sexual selection should be strongest on males, who are competing for females.
+
+The two predictions of Bateman's Principle are:
+
+1. The variance in reproductive success of males should be much higher than that of females.
+2. In males, the number of offspring produced rises much more steeply with the number of matings than in females.
+
+Both predictions have been repeatedly confirmed. In pipe fish, the pattern is opposite that of prediction (2), but that is because male pipefish carry the eggs and provide parental care of the young.
+
+## Male-Male Competition
+
+Males compete among themselves for resources, for females, and for selection as mates by females.
+
+
+1. Large body size and specialized structure for combat with other males. In invertebrates without viviparity, females may be larger than males. This evolves under conditions of low density, and perhaps represents a form of scramble competition for males to achieve higher reproductive success with rapid development and a small body size.
+2. Alternative mating strategies (in sunfish, alpha males, streaker males, sneaker males).
+3. Sperm competition (post-copulatory plugs, pheremone release, removal of competing sperm).
+4. Infanticide (male lions kill the cubs when they invade a new pride).
+
+## Female Choice
+
+Females may choose males based on a number of factors that will enhance their fitness.
+
+1. Better genes hypothesis. Females choose males based on traits that are directly linked to fitness (e.g. bright color, carotenoids, and parasite resistance in guinea fowl).
+2. Acquisition of resources (food for female and for her offspring; scorpion flies, song birds).
+3. Handicap principle (males with "costly" appendages may have extra energy reserves and produce high-fitness offspring).
+4. Runaway sexual selection (peacock tail feathers, Irish elk antlers). This is eventually halted by natural selection, especially for predation risk (guppy ornamentation in ponds with and without predators).
 
 # Lecture Notes For Friday December 5th
 
