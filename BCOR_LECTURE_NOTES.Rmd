@@ -3,11 +3,11 @@ title: "BCOR 102 Lecture Notes"
 author: "Nicholas J. Gotelli"
 date: "Department of Biology, University of Vermont"
 output:
+  pdf_document:
+    highlight: tango
   html_document:
     highlight: tango
     theme: cerulean
-  pdf_document:
-    highlight: tango
 ---
 
 # Lecture Notes For Wednesday 21 October 2015
@@ -1074,6 +1074,10 @@ Recipient Site (Warm) | 15 |10
 RecipPlot(c(20,50,15,10))
 ```
 
+
+
+
+
 Statistical Test | *P*-value
 --------- | ------------------
 Genotype Effect (Additive) | N.S.
@@ -1214,9 +1218,116 @@ Females may choose males based on a number of factors that will enhance their fi
 3. Handicap principle (males with "costly" appendages may have extra energy reserves and produce high-fitness offspring).
 4. Runaway sexual selection (peacock tail feathers, Irish elk antlers). This is eventually halted by natural selection, especially for predation risk (guppy ornamentation in ponds with and without predators).
 
-# Lecture Notes For Friday December 5th
+# Lecture Notes For Friday December 4th
 
-# Lecture Notes For Monday December 7th
+## The Paradox Of Altruism
+
+`altruism` individuals enhance the fitness of others at the expense of their own fitness.
+
+|  | Actor Benefits | Actor is Harmed
+--- | --- | ---
+Recipient Benefits | Cooperation | Altruism
+Recipient is Harmed | Selfishness | Spite
+
+Because natural selection will favor individuals that successfully pass on their own alleles, how can altruistic behavior ever evolve?
+
+`group selection` Groups of individuals that engage in altruistic behavior will outperform groups that engage in selfish behavior.
+
+This argument is invoked when it is claimed that altruism is favored "for the good of the species". But an altruistic group is always vulnerable to invasion by a cheating individual, whose own fitness will always be higher than the others in a group of altruists. For similar reasons, it is difficult for sellers to maintain an economic cartel because rivals can always undercut them by selling at cheaper prices.
+
+
+## Kin Selection
+
+The evolutionary biologist William Hamilton proposed kin selection as a general solution to how altruism might evolve. The key to kin selection is recognizing that individuals in a population share alleles not only with their offspring, but with other relatives. 
+
+`kin selection` Selection favoring the spread of allele copies in related individuals.
+
+Altruistic behavior can spread through a population when
+
+$$ Br - c > 0$$
+
+B = benefit to the recipient    
+c = cost to the actor     
+r = degree of relatedness
+
+`r(degree of relatedness)` The probability that 2 alleles in 2 different individuals are shared by descent.
+
+Note that this definition of `r` is very similar to the definition of the inbreeding cofficient F, which is the probability that two alleles *in a single individual* are shared by descent.
+
+To calculate r, draw the arrows of relationship connecting the actor and recipient and indicate the proportion of shared alleles for each step. Next multiply the proportions for each unique path and sum the paths together.
+
+### Relatedness of two full siblings
+
+$$r = \left(\frac{1}{2}\right)\left(\frac{1}{2}\right) + \left(\frac{1}{2}\right)\left(\frac{1}{2}\right) = 0.50$$
+
+### Relatedness of two half siblings
+
+$$r = \left(\frac{1}{2}\right)\left(\frac{1}{2}\right) = 0.25$$
+
+### Relatedness of two cousins
+
+$$r = \left(\frac{1}{2}\right)\left(\frac{1}{2}\right)\left(\frac{1}{2}\right) = 0.125$$
+
+When the evolutionary biologist Haldane saw these calculations, he declared
+
+> "I would lay down my life for two of my brothers or eight of my cousins!"
+
+## Kin selection in White-Throated Bee-eaters
+
+These African birds nest in colonies of 40-150 individuals and interact within smaller subgroups of 3-17 birds. The individuals are highly cooperative. They share in colony defense, food-gathering, and cooperative rearing of young. Some females will post-pone reproduction to care for the young of others. However, a careful analysis of genetic paternity revealed that altruistic behaviors are preferentially directed towards relatives:
+
+r | Expected Frequency of Helping | Observed Frequency of Helping
+-- | -- | --
+1/2 | 0.17 | 0.41
+1/4 | 0.30 | 0.40
+0 | 0.35 | 0.15
+
+These observations confirm the basic prediction of kin selection, which is that altruism should be directed towards individuals who are related and share alleles.
+
+## Eusociality
+
+The most extreme form of altruism found in nature occurs in `eusocial` animals. These animals have the following characteristics:
+
+1. Cooperative care of young.
+2. Reproductive division of labor, with sterile castes of workers, and a reproductive caste (males).
+3. Overlap of 2 or more generations, so that offspring can assist their parents in the rearing of siblings.
+
+This behavior has evolved most commonly in the insect order Hymenoptera. Within the hymenoptera, all the ants are eusocial, as are some of the wasps and some of the bees. Elsewhere in the animal kingdom, eusociality has evolved in the termites and the naked mole rats. Within the Hymenoptera, eusociality has evolved at least 9 times in independent lineages.
+
+Why is eusociality so common in the Hymenoptera? One clue is their strange system of sex determination
+
+`haplodiploidy` Sex determination system of the hymenoptera in which fertilized eggs develop into females and unfertilized eggs develop into males.
+
+Haplodiploidy does some unusual things to patterns of relatedness.
+
+For example, the degree of relatedness between a mother and her daughter is the same as for other organisms
+
+$$r = \left(\frac{1}{2}\right)$$
+
+But now consider the degree of relatedness between two sisters:
+
+$$r = \left(\frac{1}{2}\right)\left(\frac{1}{2}\right) + \left(\frac{1}{2}\right)\left(1\right) = 0.75$$
+
+Thus, females share more alleles with their sisters than they do with their own daughters! Therefore, kin selection predicts that some females should forego their own reproduction to assist their mother in raising more sisters. That is exactly what happens in ants and eusocial wasps and bees: all of the worker castes are female.
+
+The situation is different for males. They share all of their alleles with their daughters:
+
+$$r = 1$$
+
+but they share only $1/4$ of their alleles with their sisters:
+
+$$r = \left(\frac{1}{2}\right)\left(\frac{1}{2}\right) + \left(0\right)\left(\frac{1}{2}\right)\ = 0.25$$
+
+Here kin selection theory predicts that males should be selfish, contribute nothing to colony maintenance, and invest only in mating. Again, that is exactly what happens.
+
+But there are two complications to this "just-so" story:
+
+1. Not all Hymenoptera are eusocial. There are many species of solitary wasps and bees that are haplodiploid, but don't have sterile worker castes. Why not?
+
+2. Naked mole rats and termites are also eusocial, but they are not haplodiploid and have normal sex determination with fertilized eggs devloping into both males and females. So why are they eusocial?
+
+One interesting observation is that termites, nakes mole rats, and many species of ants, wasps, and bees all live in the ground. If you are burrowing through soil and meet another individual face to face, there may be a strong incentive for cooperation rather than fighting or fleeing. Perhaps this is an ecological set of conditions that favors cooperation and perhaps serves as a precursor the evolution of eusociality in these animals.
+
 
 # R Functions
 
@@ -1224,6 +1335,8 @@ Females may choose males based on a number of factors that will enhance their fi
 Here is a collection of R functions that calculate each of the formulas we use in BCOR 102. You can paste them into R or use in the accompanying script file `BCOR_LECTURE_NOTES.R`. These are simple calculators that you can use to practice numerical problems and make sure you are doing your calculations correctly.
 
 ## R Functions For Allelic & Hardy-Weinberg Calculations
+
+
 
 
 1. `AlleleFreq_2A` takes as inputs the number or frequencies of 3 genotypes (AA AB BB) and returns the frequencies of the two alleles (A B)
