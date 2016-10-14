@@ -3,14 +3,16 @@ title: "BCOR 102 Lecture Notes"
 author: "Nicholas J. Gotelli"
 date: "Department of Biology, University of Vermont"
 output:
-  pdf_document:
-    highlight: tango
   html_document:
     highlight: tango
     theme: cerulean
+  pdf_document:
+    highlight: tango
 ---
 
-# Lecture Notes For Wednesday 21 October 2015
+These lecture notes provide you with a study guide for the Population Genetics and Evolution material from the second half of the class. This set of notes was originally written from the Fall 2015 lectures. I have left the lecture headings in place, but not with the original dates. Each year, the precise order and timing of the lectures may not match this sequence, but these notes should work well with the material from class.
+
+# Lecture #1
 
 ## Definitions
 
@@ -121,7 +123,7 @@ Offspring phenotypes: RedSmooth: Redwrinkled: whiteSmooth: whitewrinkled
 Offspring phenotype counts: 9: 3: 3: 1    
 Offspring phenotypic frequencies: $\frac{9}{16},\frac{3}{16},\frac{3}{16},\frac{1}{16}$
 
-# Lecture Notes For Friday 23 October 2015
+# Lecture #2
 
 ## Definitions
 
@@ -284,7 +286,7 @@ Remember that allelic frequencies can always be calculated from genotypic freque
 
 However, in order to predict genotypic frequencies from allelic frequencies, we have to assume Hardy-Weinberg or some other kind of biological model that tell us what happens to allelic and genotypic frequencies each generation.
 
-# Lecture Notes For Monday October 26th
+# Lecture #3
 
 Mutation is the ultimate source of genetic variation in populations, but is it a strong molecular force by itself?
 
@@ -347,7 +349,7 @@ $$\hat{q} = \frac{u}{u + v}$$
 
 $$\hat{p} = \frac{v}{u + v}$$
  
-# Lecture Notes For Friday October 30th
+# Lecture #4
 
 ## Migration
 
@@ -459,7 +461,7 @@ However, there is also an argument that inbreeding could benefit a population by
 
 This effect would be most beneficial for organisms living in stable environments whose offspring do not disperse very far from their parents. Accordingly, there are many examples of restricted plant populations with little or no genetic variability that seem perfectly healthy (at least until the climate changes).
 
-# Lecture Notes For Monday November 9th
+# Lecture #5
 
 ## Genetic Drift
 
@@ -671,7 +673,7 @@ Migration | Strong | Yes | Yes
 Non-random Mating | Weak | No (yes with recessive lethals) | Yes
 Genetic Drift | Strong (if N~E~ < 100) | Yes (if N~E~ < 100) | No
 
-# Lecture Notes For Wednesday November 11th
+# Lecture #6
 
 ## Definitions
 
@@ -823,7 +825,7 @@ f(AA) = (0.464)^2 = 0.215
 f(AB) = 2(0.464)(0.536) = 0.497
 f(BB) = (0.536)^2 = 0.287
 ```
-# Lecture Notes For Friday November 13th
+# Lecture #7
 
 ## Long-term Outcomes Of Selection
 
@@ -859,7 +861,7 @@ If there is selection against a dominant or against a recessive, this leads to a
 
 5. **Microevolutionary change** leads to macroevolutionary responses.
 
-# Lecture Notes For Monday November 16th
+# Lecture #8
 
 ## Selection On Quantitative Traits
 
@@ -908,7 +910,7 @@ R = response to selection = 11 - 10 = 1
 h^2 = heritability = R/S = 1/10 = 0.10
 ```
 
-# Lecture Notes For Friday November 18th
+# Lecture #9
 
 ## Common Garden Experiments
 Common garden experiments are a method for teasing apart genetic and environmental influences on a trait. Typically, these experiments begin with observations of average trait values seen in the field. In the following set of boxplots, we see measures of a trait value for 15 individuals sampled randomly from each of 3 populations (P1, P2, and P3).
@@ -1086,7 +1088,7 @@ Genotype x Environment (Interaction) | *P* < 0.05
 
 When the interaction term is significant, the lines connecting the treatments are no longer parallel. We can describe this interaction by saying that the difference in trait values between genotypes depends on the environment. Equivalently, we could say that the difference in trait values between environments depends on the genotype. Statistical interactions of this sort make it hard to predict the joint effect of two factors (in this case environment and genotype) just knowing how each one operates in isolation. Strong interactions between prescription drugs are a common example of this problem.
 
-# Lecture Notes For Monday November 30th
+# Lecture #10
 `species (biological definition)` Groups of actually or potentially interbreeding populations that are *reproductively isolated* from other such groups.
 
 `species (taxonomic definition)` Populations that can be reliably distinguished on the basis of one or more morphological/genetic characters.
@@ -1159,7 +1161,7 @@ Plants | 20% | 20% | 60%
 5. Map character state changes onto each possible evolutionary tree.
 6. Choose among trees by minimizing the number of character state changes needed to reconstruct the current trait distribution (= parsimony).
 
-# Lecture Notes For Wednesday December 2nd
+# Lecture #11
 
 `sex` The recombination of alleles with those of another individual via meiosis and fertilization. Reproduction can occur without sex (e.g. plant grafts, and parthenogenesis). Sex can even occur without reproduction (e.g. *Paramecium*, which undergo conjugation and exchange genetic material without reproducing).  Some organisms like aphids alternate between sexual and asexual reproduction.
 
@@ -1218,7 +1220,7 @@ Females may choose males based on a number of factors that will enhance their fi
 3. Handicap principle (males with "costly" appendages may have extra energy reserves and produce high-fitness offspring).
 4. Runaway sexual selection (peacock tail feathers, Irish elk antlers). This is eventually halted by natural selection, especially for predation risk (guppy ornamentation in ponds with and without predators).
 
-# Lecture Notes For Friday December 4th
+# Lecture #12
 
 ## The Paradox Of Altruism
 
