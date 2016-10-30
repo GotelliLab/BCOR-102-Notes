@@ -1,7 +1,7 @@
 ---
 title: "BCOR 102 Lecture Notes & Rscripts"
 author: ''
-date: 'Latest Update: 14 October 2016'
+date: 'Latest Update: 30 October 2016'
 output:
   html_document:
     theme: readable

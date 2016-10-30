@@ -3,11 +3,11 @@ title: "BCOR 102 Lecture Notes"
 author: "Nicholas J. Gotelli"
 date: "Department of Biology, University of Vermont"
 output:
+  pdf_document:
+    highlight: tango
   html_document:
     highlight: tango
     theme: cerulean
-  pdf_document:
-    highlight: tango
 ---
 
 These lecture notes provide you with a study guide for the Population Genetics and Evolution material from the second half of the class. This set of notes was originally written from the Fall 2015 lectures. I have left the lecture headings in place, but not with the original dates. Each year, the precise order and timing of the lectures may not match this sequence, but these notes should work well with the material from class.
@@ -240,7 +240,7 @@ $$p + q + r = 1.0$$
 
 $$(p + q + r)^2 = 1.0^2$$
 
-$$p^2 + 2pq + 2qr + 2qr + q^2 + r^2 = 1.0$$
+$$p^2 + 2pq + 2pr + 2qr + q^2 + r^2 = 1.0$$
 
 $$f(JJ) + f(JK) + f(JL) + f(KL) + f(KK) + f(LL) = 1.0$$
 
