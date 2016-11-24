@@ -716,7 +716,7 @@ w~3~ = 0.50 = relative fitness of BB
 
 `mean fitness` average fitness of individuals in the population after random mating and selection $= \bar{w}$
 
-$$\bar{w} = w_1p^2 + w_2pq + w_3q^2$$
+$$\bar{w} = p^2w_1 + 2pqw_2 + q^2w_3$$
 
 ## A Model Of Natural Selection & Random Mating
 
