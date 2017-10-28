@@ -9,6 +9,7 @@ output:
     highlight: tango
     theme: cerulean
 ---
+**Latest Update: 28 October 2017**
 
 These lecture notes provide you with a study guide for the Population Genetics and Evolution material from the second half of the class. This set of notes was originally written from the Fall 2015 lectures. I have left the lecture headings in place, but not with the original dates. Each year, the precise order and timing of the lectures may not match this sequence, but these notes should work well with the material from class.
 
@@ -142,14 +143,14 @@ Here are some sample data in the form of counts of different genotypes for a sin
 
 Genotype | AA | AB | BB | Sum
 -------  | -- | --| -- | --
-Number of individuals    | 75 | 20 | 100 | 200
+Number of individuals    | 75 | 20 | 100 | 195
 
 ### Calculating Genotypic Frequencies
 
 ```
-f(AA) = 75/200 = 0.385
-f(AB) = 20/200 = 0.103
-f(BB) = 100/200 = 0.512
+f(AA) = 75/195 = 0.385
+f(AB) = 20/195 = 0.103
+f(BB) = 100/195 = 0.512
 ```
 
 ### Calcuating Allelic Frequencies
