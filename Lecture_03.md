@@ -31,8 +31,9 @@ $$
 variance = \sigma^2_x = \frac{\displaystyle{\sum_{i=1}^{n}(x_i - \bar{x})^2}}{(n - 1)}
 $$
 
-> IMAGE 3.1 Normal distribution				
-> ​					
+> IMAGE 3.1 Normal distribution	
+
+![Lec_03.1](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_03.1.jpg)
 
 | measurement variation                                        | biological variation                           |
 | ------------------------------------------------------------ | ---------------------------------------------- |
@@ -49,6 +50,8 @@ $$
 > statistical hypothesis - a test of whether the pattern in the data is better explained by H~0~ (null hypothesis) or NOT H~0~ (alternative hypothesis)
 
 > IMAGE 3.2 Null and alternative hypothesis for sex differences
+
+![Lec_03.2](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_03.2.jpg)
 
 ## Statistical P-Values
 
@@ -69,13 +72,21 @@ $$
 
 > IMAGE 3.3 schematic of bar chart
 
+![Lec_03.3](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_03.3.jpg)
+
 > IMAGE 3.4 null versus alternative bar chart
+
+![Lec_03.4](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_03.4.jpg)
 
 ### Continuous Predictor Variablers (Linear Regression)
 
 > IMAGE 3.5 schematic of linear regression
 
+![Lec_03.5](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_03.5.jpg)
+
 > IMAGE 3.6 null versus alternative regression model
+
+![Lec_03.6](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_03.6.jpg)
 
 ## Testing Hypotheses
 
@@ -85,11 +96,15 @@ $$
 
 >  IMAGE 3.7 flow chart for logic tree of H~Biol~ and H~0~
 
+![Lec_03.7](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_03.7.jpg)
+
 ## Sample Inference Problem
 
-- H~Biol~ In high-alpine lakes, ncreased algal biomass increases fish species diversity (“bottom-up control”
+- H~Biol~ In high-alpine lakes, increased algal biomass increases fish species diversity (“bottom-up control”)
 
 > IMAGE 3.8 Schematic for outcome of fish experiment
+
+![Lec_03.8](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_03.8.jpg)
 
 ## Determinants of Statistical P-Value
 
@@ -118,15 +133,12 @@ $$
 
 
 - which kind of error is more serious?
-
 - in clinical applications, usually assume Type II error is more important
-
 - in standard science applications, priority is placed on Type I error
-
   - errors of ignorance are less serious than errors of falsity
   - Type I error is measured readily in mainstream statistics, but Type II error is much harder (Bayesian analysis)
 
-  
+> alternative definition for statistical p - probability of making a Type I error by rejecting H~0~
 
 
 
