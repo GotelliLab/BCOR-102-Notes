@@ -16,5 +16,7 @@
 
 > Got only through p-value definition. Still need to cover logic flow chart, determinants of statistical p value, empirical example from problem set, and Type I and Type II statistical errors.
 
+### Wednesday, 7th September
 
+> Finished biological hypotheses, example problem, determinants of statistical p, Type I and Type II errors. Introduced ecology definitions (from lecture #1) and defined population. Just at the edge of starting the math.
 
