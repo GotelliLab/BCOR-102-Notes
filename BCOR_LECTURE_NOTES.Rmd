@@ -3,11 +3,11 @@ title: "BCOR 102 Lecture Notes"
 author: "Nicholas J. Gotelli"
 date: "Department of Biology, University of Vermont"
 output:
-  pdf_document:
-    highlight: tango
   html_document:
     highlight: tango
     theme: cerulean
+  pdf_document:
+    highlight: tango
 ---
 **Latest Update: 28 October 2017**
 
@@ -534,27 +534,29 @@ You can see from this example that genotypic and allelic changes from genetic dr
 
 `fixed allele` a gene locus that has only a single allele in a population is "fixed" because the allele frequency is 1.00, and every individual in the population is homozygous for the same allele. 
 
-Suppose a single new allele arises in a population from mutation. The probability of fixation of this allele is its frequency in the gene pool:
+Suppose a single new allele arises in a population from mutation. The long-term probability of fixation of this allele is its frequency in the gene pool:
 
 $$p(\mbox{fixation}) = \frac{1}{2N}$$
 
 Remember that there are 2N alleles in the gene pool for a single gene locus.
 
-However, with mutation rate *u*, each generation there will be 2n*u* copies of the mutant produced. Thus, the probability of fixation in each generation is:
+However, with mutation rate *u*, each generation there will be 2n*u* copies of the mutant produced. Thus, the long-term probability of fixation is:
 
-$$p(\mbox{fixation in one generation}) = \frac{2Nu}{2N} = u$$
+$$p(\mbox{fixation}) = \frac{2Nu}{2N} = u$$
 
-Thus, with mutation and genetic drift, we have the interesting result that the probability of fixation each generation = *u*, the mutation rate of the allele.
+Thus, with mutation and genetic drift, we have the interesting result that the long-term probability of fixation = *u*, the mutation rate of the allele.
 
-As we discussed before, *u* is a small number, so the chances are slim. But what is the probability of fixation after t generations?
+As we discussed before, *u* is a small number, so the chances are slim.
 
-$$p(\mbox{fixation in one generation}) = u$$
+In general, if the probability of a single event is small, the overall probability of it occurring at least once can be surprisingly large
 
-$$p(\mbox{no fixation in one generation}) = 1 - u$$
+$$p(\mbox{single event}) = z$$
 
-$$p(\mbox{no fixation in t generations}) = (1 - u)^t$$
+$$p(\mbox{no event in one trial}) = 1 - z$$
 
-$$p(\mbox{fixation in at least one of t generations}) = 1 - (1-u)^t$$
+$$p(\mbox{no events in t trials}) =(1 - z)^t$$
+
+$$p(\mbox{at least 1 event in t trials}) = 1 - (1-z)^t$$
 
 This formula applies not to just genetic drift, but to all chance events in life. Suppose for example, that you estimate that the chances of getting a ticket for speeding are 1/100, and you only speed on Friday afternoons (to get home from work quickly to start your weekend).
 
@@ -576,13 +578,6 @@ p(speeding ticket at least once during 5 years) =
 ```
 A 92% chance you will get caught!
 
-Back to the world of population genetics. Recall that mutation rates in the real world are on the order of 10^-6^ to 10^-4^. What are the chances of fixation after 1000 generations?
-
-```
-p(fixation) = 1 - (1 - 0.0001)^1000 = 0.095
-p(fixation) = 1 - (1 - 0.000001) ^1000 = 0.001
-```
-Again, these probabilities are very small. In the long-run, if we wait long enough, alleles arising by mutation will be fixed by chance. But other forces operate much more quickly to change allele frequencies. Notice that these calculations for fixation are not affected by population size. However, it is the case that allele frequencies in small populations fluctuate much more from drift than do large populations, even if those fluctuations don't necessarily lead to fixation.
 
 ## Effective Population Size
 
