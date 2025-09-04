@@ -106,7 +106,7 @@ $$
 
 - N~t~= N at time t
 - N~0~ = initial N (at time 0)
-- e = constant (Euler’s number = 2.718
+- e = constant (Euler’s number = 2.718)
 - r = intrinsic rate of increase
 - t = number of time steps (in specified units!)
 
@@ -142,12 +142,76 @@ $$
 | :---: | :-------------: |
 | N~2~  |        2        |
 | N~10~ |       32        |
-| N~20~ |      1033       |
-| N~22~ |      2067       |
-| N~30~ |     33,190      |
-| N~40~ |    1,066,614    |
-| N~50~ |   34,277,510    |
-| N~57~ |  ~330,000,000   |
+| N~19~ |       724 (Biology) |
+| N~30~ |      32,768 (UVM)       |
+| N~35~ |      185,364 (Burlington)       |
+| N~38~ |     524,288 (Vermont)      |
+| N~48~ |    17 million (New England)    |
+| N~57~ |   390 million (U.S.A.)    |
+| N~73~ |  ~9.7 billion (earth)  |
 
-- how long until we reach global population of 8 billion?
+## Rule of 72
+
+$$
+t_{double} ~ \frac{72}{\% increase}
+$$
+
+e.g. 10% per year = t~double~ 7 years
+
+
+
+## Discrete Growth
+
+$$
+\frac{dN}{dt} = r
+$$
+
+$$
+N_{t + 1} = N_t\lambda
+$$
+
+$\lambda$ = finite rate of increase
+
+$\lambda$ = 1.05 = 5% increase/unit time
+
+$\lambda$ = 0.98 = 2% decrease/unit time
+
+
+
+
+
+
+$$
+N_t = \lambda^tN_0
+$$
+
+$$
+e^r = \lambda
+$$
+
+$$
+ln(\lambda) = r
+$$
+
+> Figure 4.4 N vs t, log(N) vs t, and log scale N vs t
+
+## Assumptions of Exponential Growth Model
+
+1) No I or E
+2) No genetic structure
+3) No age or size structure
+4) Continuous growth with no time lags
+5) **constant b & d (implies unlimited resources for growth**
+
+## Importance of Exponential Model
+
+1. All organisms have potential for exponential population growth
+2. Distinction between living and non-living materials
+3. $r$ is an object of natural selection
+4. Describes outbreak and pest dynamics
+5. Trajectory of human growth (Thomas Malthus
+
+> Figure 4.5 Malthusian graph of N and food supply versus time
+
+
 
