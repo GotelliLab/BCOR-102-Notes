@@ -6,6 +6,8 @@
 
 > FIGURE 4.1. Graph of N versus t
 
+![Lec_04.1](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_04.1.jpg)
+
 > N = number of individuals (integer >= 0)
 >
 > N~t~ = number of individuals at time *t*
@@ -40,6 +42,7 @@ $$
 
 > FIGURE 4.2 Graph of N versus t showing dN/dt as a slope
 
+![Lec_04.2](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_04.2.jpg)
 
 $$
 dN/dt = \mbox{births} - \mbox{deaths}
@@ -91,6 +94,8 @@ $$
   - if (b -d) = 0, then r = 0, so dN/dt = rN = 0
 
 > FIGURE 4.3 graphs of N versus t for -, 0 and + dN dt (4 cases)
+
+![Lec_04.3](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_04.3.jpg)
 
 - “velocity” equation
 
@@ -195,6 +200,8 @@ $$
 
 > Figure 4.4 N vs t, log(N) vs t, and log scale N vs t
 
+![Lec_04.4](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_04.4.jpg)
+
 ## Assumptions of Exponential Growth Model
 
 1) No I or E
@@ -212,6 +219,10 @@ $$
 5. Trajectory of human growth (Thomas Malthus
 
 > Figure 4.5 Malthusian graph of N and food supply versus time
+
+![Lec_04.5](/Users/nickgotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_04.5.jpg)
+
+
 
 
 
