@@ -47,6 +47,8 @@ Once upon a time...
 
 > Figure 6.1 Sketch of cohort survival for the class
 
+![Lec_06.1](/Users/ngotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_06.1.jpg)
+
 ## Life Table Calculations
 
 | x (month) | S~x~ | b~x~ | l~x~ | g~x~ | l~x~b~x~ | xl~x~b~x~ |
@@ -86,9 +88,13 @@ Once upon a time...
 
 > Figure 6.2 Stable age distribution with n=0,1,2,3 ages
 
+![Lec_06.2](/Users/ngotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_06.2.jpg)
+
 > stationary age distribution - relative and absolute numbers of individuals of different ages stay constant (r=0)
 
 > Figure 6.3 Stationary age distribution with n=0,1,2,3 ages
+
+![Lec_06.3](/Users/ngotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_06.3.jpg)
 
 ## Summary Of Life Table Elements
 
