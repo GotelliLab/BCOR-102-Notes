@@ -1,111 +1,135 @@
-# Lecture #6
+# Lecture #7
 
-## Model Classification
+## Life History Strategies
 
-|                  | Unlimited Resources | Limited Resources |
-| ---------------- | ------------------- | ----------------- |
-| No Age Structure | Exponential         | Logistic          |
-| Age Structure    | Age Structure Model |                   |
+> life history strategy - schedule of l~x~ and b~x~ that maximizes offspring production and survival in a particular environment (often maximizes r)
 
-Modify the assumption that b and d are simple constants. Instead, birth and death rates vary as a function of age
+> Figure 7.1 partition of lifetime energy allocation
 
-
-
-## Age Notation
-
-Set up a number line showing age of organisms
-
-x = age class
+![Lec_07.1](LectureFigures/Lec_07.1.jpg)
 
 
 
-#-----#-----#----#----# x (years)
-
-0         1        2         3.     4
 
 
+## Types of l~x~ curves
 
-by definition, newborns are at age class zero. These are bins, so organisms are 0, 1, or 2 years old, but we refer only to individuals between age x and x + 1 for birth and death processes that occur.
+> Figure 7.2 three l~x~ curves
+
+![Lec_07.2](LectureFigures/Lec_07.2.jpg)
 
 
 
-## Birth Schedule
+- Type I = good juvenile survivorship, poor adult survivorship (vertebrates, parental care)
+- Type II = constant survivorship across all age classes (almost no examples)
+- Type III = poor juvenile survivorship, good adult survivorship (perennial plants, invertebrates)
 
-> b~x~ = average number of births per female between the ages of x and x + 1
 
-> semelparous - big bang reproduction in a single age class
 
-> iteroparous - reproduction in two or more age classes
+## Life Table Factors That Increase r
 
-> annual - lives for a single season (always semelparous)
+1. Reduce age at first reproduction
+2. Increase in litter size
+3. Increase in number of litters
+4. Increase survivorship of juvenile and reproductive ages
 
-> perennial = lives for two or more seasons (usually iteroparpous)
+## Semelparity versus Iteroparity
 
-## Death Schedule
+iteroparity should increase r, but not as much as you might think because it increases genertion time:
 
-Once upon a time...
 
-> Figure 6.1 Sketch of cohort survival for the class
+$$
+r \approx \frac{ln(R_0)}{G}
+$$
 
-![Lec_06.1](/Users/ngotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_06.1.jpg)
+> Cole’s Law - r(iteroparous) $\approx$ r(semelparous + 1 offspring)
 
-## Life Table Calculations
+> bet-hedging - iteroparity is an adaptation when juvenile survival is variable through time
 
-| x (month) | S~x~ | b~x~ | l~x~ | g~x~ | l~x~b~x~ | xl~x~b~x~ |
-| --------- | ---- | ---- | ---- | ---- | -------- | --------- |
-| 0         | 500  | 0    | 1.0  | 0.8  | 0        | 0         |
-| 1         | 400  | 2    | 0.8  | 0.5  | 1.6      | 1.6       |
-| 2         | 200  | 3    | 0.4  | 0.25 | 1.2      | 2.4       |
-| 3         | 50   | 1    | 0.1  | 0    | 0.1      | 0.3       |
-| 4         | 0    | -    | 0    | -    | -        | -         |
-| Sum       |      | 6    |      |      | 2.9      | 4.3       |
+## r-K Selection
 
-## Life Table Formulas \& Definitions
+> Figure 7.3 r and K selection scenarios
 
-> l~x~= probability of surviving from birth to age x
->
->  $l_x =\frac{S_x}{S_0}$
+![Lec_07.3](LectureFigures/Lec_07.3.jpg)
 
-> g~x~= age-specific probability of survival from age x to age x + 1
->
-> $g_x=\frac{l_{x+1}}{l_x}$
 
-> R~0~ ("R naught") = net reproductive rate (# daughters born next generation / # daughters born this generation)
->
-> $R_0 = \sum{l_xb_x} = 2.9$
 
-> G = generation time = average age of the parents of a cohort
->
-> $G=\frac{\sum{xl_xb_x}}{\sum{l_xb_x}}=\frac{4.3}{2.8} =1.48 \mbox{ months}$
+- basic premise - degree of crowding affects optimal life history strategy
 
-> $r \approx =\frac{ln(R_0)}{G}= \frac{ln(2.9)}{1.48}=0.72\mbox{ individuals/individual*month}$
+| Density                     |        Low         |       High        |
+| :-------------------------- | :----------------: | :---------------: |
+| Competitive Ability         |        weak        |      strong       |
+| Development                 |        fast        |       slow        |
+| Body Size                   |       small        |       large       |
+| Reproduction                | early, semelparous | late, iteroparous |
+| Juvenile Production         |    many, small     |    few, large     |
+| Juvenile Survivorship       |   low (Type III)   |   high (Type I)   |
+| r (in uncrowded conditions) |       large        |       small       |
 
-## Age Structure
+## r - K Selection in Fruit Flies
 
-> age structure - relative numbers of individuals of different ages in a population
+- generation time 21 days
+- larval offspring are like feeding caterpillars
+- use ancestral stock and create r and K selected lines.
 
-> stable age distribution - relative numbers of individuals of different ages stay constant
+> Figure 7.4  r and K selected lines
 
-> Figure 6.2 Stable age distribution with n=0,1,2,3 ages
+![Lec_07.4](LectureFigures/Lec_07.4.jpg)
 
-![Lec_06.2](/Users/ngotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_06.2.jpg)
 
-> stationary age distribution - relative and absolute numbers of individuals of different ages stay constant (r=0)
 
-> Figure 6.3 Stationary age distribution with n=0,1,2,3 ages
+> Figure 7.5  theoretical l~x~ and b~x~ schedules
 
-![Lec_06.3](/Users/ngotelli/Desktop/githubRepos/BCOR-102-Notes/LectureFigures/Lec_06.3.jpg)
+![Lec_07.5](LectureFigures/Lec_07.5.jpg)
 
-## Summary Of Life Table Elements
 
-| Variable | Description                              | Units                                                   | Formula                                |
-| :------: | ---------------------------------------- | ------------------------------------------------------- | -------------------------------------- |
-|    x     | age                                      | time-step (days, months, years)                         | given                                  |
-|   S~x~   | cohort survivorship (counts)             | # of surviving individuals                              | given                                  |
-|   b~x~   | births                                   | average # of births/female<br />from age x to age x + 1 | given                                  |
-|   l~x~   | survivorship schedule (proportions)      | probability of surviving<br />from birth to age x       | $l_x=\frac{S_x}{S_0}$                  |
-|   g~x~   | age-specific probability of survival     | probability of surviving<br />from age x to age x + 1   | $g_x=\frac{l_{x+1}}{l_x}$              |
-|   R~0~   | net reproductive rate                    | # daughters next gen / # this gen                       | $R_0 = \sum{l_xb_x}$<br />(or given)   |
-|    G     | generation time                          | average age of parents of a cohort                      | $G=\frac{\sum{xl_xb_x}}{\sum{l_xb_x}}$ |
-|    r     | intrinsic rate of increase (approximate) | individuals/individual*time                             | $r \approx =\frac{ln(R_0)}{G}$$        |
 
+> Figure 7.6  realized l~x~ schedules for males and females
+
+![Lec_07.6](LectureFigures/Lec_07.6.jpg)
+
+
+
+> Figure 7.7  realized b~x~ schedules for females
+
+![Lec_07.7](LectureFigures/Lec_07.7.jpg)
+
+
+
+- does not really provide good confirmation of r-K selection
+- r-K selection not really based on a formal population growth model
+- does show that there is genetic variation in life history traits and they respond to crowding
+
+
+
+## Ecological Consequences of Body Size Variation
+
+- show slides from Strategic Coding of giant and tiny monsters
+
+> Figure 7.8  schematic of length and cube
+
+![Lec_07.8](LectureFigures/Lec_07.8.jpg)
+
+
+
+- surface area = $6z^2$ = “supply”
+- volume = $z^3$ = “demand”
+- fundamental problem is that demand scales faster than supply
+
+
+
+> Figure 7.9  square and cube functions of z
+
+![Lec_07.8](LectureFigures/Lec_07.8.jpg)
+
+
+
+> Figure 7.10  pipeline from size to little r
+
+![Lec_07.9](LectureFigures/Lec_07.9.jpg)
+
+
+
+> Figure 7.11  r versus body size (with evolutionary variants)
+
+![Lec_07.10](LectureFigures/Lec_07.10.jpg)
